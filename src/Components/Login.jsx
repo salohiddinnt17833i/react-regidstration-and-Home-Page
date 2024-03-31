@@ -16,12 +16,18 @@ function Login() {
       password: password.current.value
     }
     const logInHome = JSON.parse(localStorage.getItem(("user")))
-    if (logInHome.email == obj.email && logInHome.password == obj.password) {
-      localStorage.setItem('logged', JSON.stringify(true))
-      navigate("/")
+    if (logInHome) {
+      if (logInHome.email == obj.email && logInHome.password == obj.password) {
+        localStorage.setItem('logged', JSON.stringify(true))
+        navigate("/")
+      } else {
+        alert("wrong Email or Password")
+      }
     } else {
-      alert("wrong Email or Password")
+      alert("Please, you need to sign up")
+      navigate("/register")
     }
+
     setBtnDisabled(false)
   }
 
