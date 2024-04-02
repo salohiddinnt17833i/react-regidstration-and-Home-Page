@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './all.module.css'
-import { BeatLoader, BounceLoader, ClipLoader } from 'react-spinners';
-import ProductDetailes from './ProductDetailes'
+import { BeatLoader } from 'react-spinners';
 import './all.css'
 
 function Products() {
@@ -29,17 +28,17 @@ function Products() {
 
   return (
     <>
-      <div className={Mode ? 'Palll' : 'PDall'}>
-        <div style={{ textAlign: "center", paddingTop: "100px" }} className={style.container}>
-          {
-            loading ? <BeatLoader
-              color={color}
-              loading={loading}
-              cssOverride={override}
-              size={15}
-              aria-label="Loading Spinner"
-              data-testid="loader" />
-              : <div className={style.container}>
+      <div className='text-center'>
+        {
+          loading ? <BeatLoader
+            color={color}
+            loading={loading}
+            cssOverride={override}
+            size={15}
+            aria-label="Loading Spinner"
+            data-testid="loader" /> : <div className={Mode ? 'Palll' : 'PDall'}>
+            <div style={{ textAlign: "center", paddingTop: "100px" }} className={style.container}>
+              <div className={style.container}>
                 <div>
                   <div className={Mode ? 'div' : 'Ddiv'}>
                     <div>
@@ -119,23 +118,16 @@ function Products() {
                             <h6 className={Mode ? style.h6 : style.Dh6}>$ {el.attributes.price}</h6>
                           </div>
                         </div>
-                        // <div onClick={() => { handleClick(el.id) }} key={index} className="p-2 shadow-sm rounded-3" style={{ cursor: "pointer", }}>
-                        //   <div className="card-body text-center">
-                        //     <img className={style.cardImg} src={el.attributes.image} alt="img" />
-                        //     <h5 className="card-title mt-4">{el.attributes.title}</h5>
-                        //     <h6 className="card-subtitle mb-2 mt-2 text-body-secondary">$ {el.attributes.price}</h6>
-                        //   </div>
-                        // </div>
                       )
                     })
                   }
                 </div>
               </div>
-          }
-        </div>
+            </div>
+          </div>
+        }
       </div>
     </>
-
   )
 }
 

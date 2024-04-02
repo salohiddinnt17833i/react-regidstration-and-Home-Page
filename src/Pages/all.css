@@ -5,6 +5,7 @@ input {
     background-color: #F0F6FF;
     color: #394E82;
 }
+
 .input {
     width: 220px;
     border-radius: 4px;
@@ -12,6 +13,7 @@ input {
     background-color: #F0F6FF;
     color: #394E82;
 }
+
 .Dinput {
     width: 220px;
     border-radius: 4px;
@@ -105,9 +107,55 @@ label {
     border-radius: 10px;
     color: white;
 }
-.h1{
+
+.h1 {
     color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-.Dh1{
+
+.Dh1 {
     color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.img{
+    max-width: 150px;
+    border-radius: 10px;
+}
+.text{
+    padding-top: 10px 0px;
+    font-size: 13px;
+}
+.Dtext{
+    padding-top: 10px 0px;
+    color: white;
+    font-size: 13px;
+
+}
+.rl{
+    display: flex;
+    justify-content: space-between;
+}
+.cD{
+    max-width: 400px;
+    padding: 20px;
+    background-color: #EBF1FA;
+    border-radius: 10px;
+}
+.cDD{
+    max-width: 400px;
+    padding: 20px;
+    background-color:#181920;
+    border-radius: 10px;
+}
+.AllC{
+    display: flex;
+    justify-content: space-between;
+}
+.select{
+    width: 50px;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
