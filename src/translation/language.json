@@ -1,0 +1,44 @@
+{
+    "en": {
+        "translation": {
+            "we are changing the way people shop": "We are changing the way people shop",
+            "our products": "OUR PRODUCTS",
+            "featured Products": "Featured Products",
+            "we love": "We love",
+            "comfy": "Comfy",
+            "shopping Cart": "Shopping Cart",
+            "Home": "Home",
+            "about": "About",
+            "products": "Products",
+            "cart": "Cart"
+        }
+    },
+    "uz": {
+        "translation": {
+            "we are changing the way people shop": "Biz odamlarning xarid qilish uslubini o'zgartirmoqdamiz",
+            "our products": "MAHSULOTLARIMIZ",
+            "featured Products": "Tanlangan mahsulotlar",
+            "we love": "Biz sevamiz",
+            "comfy": "Qulay",
+            "shopping Cart": "Xarid savati",
+            "home": "Asosiy",
+            "about": "Biz haqimizda",
+            "products": "Mahsulotlar",
+            "cart": "Arava"
+        }
+    },
+    "ru": {
+        "translation": {
+            "we are changing the way people shop": "Мы меняем способ совершения покупок",
+            "our products": "НАШИ ПРОДУКТЫ",
+            "featured Products": "Рекомендуемые продукты",
+            "we love": "Мы любим",
+            "comfy": "удобный",
+            "shopping Cart": "Корзина",
+            "home": "Дом",
+            "about": "О",
+            "products": "Продукты",
+            "cart": "Корзина"
+        }
+    }
+}

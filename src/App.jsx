@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, NavLink } from 'react-router-dom';
+import { Routes, Route, useNavigate, NavLink, Router } from 'react-router-dom';
 import Home from './Pages/Home';
 import Login from './Components/Login';
 import Register from './Components/Register';
@@ -9,22 +9,18 @@ import Cart from './Pages/Cart';
 import { IoMoonSharp } from "react-icons/io5";
 import { CiSun } from "react-icons/ci";
 import { SlBasket } from "react-icons/sl";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, } from 'react';
+import { useTransition } from 'react';
 import Topnav from './Components/Topnav';
 import Navbar from './Components/Navbar';
 import style from '../src/all.module.css';
-
 function App() {
   const [Mode, setMode] = useState(true);
   const [info, setInfo] = useState([])
   localStorage.setItem("darkMode", JSON.stringify(Mode));
-  const navigate = useNavigate();
+  const [lang, setLang] = useState('uz');
+  const { t, i18n } = useTransition()
 
-  function handleLogout(e) {
-    e.preventDefault();
-    localStorage.removeItem("logged");
-    navigate("/login");
-  }
   useEffect(() => {
     fetch('https://strapi-store-server.onrender.com/api/products?featured=true')
       .then(response => {
@@ -35,6 +31,7 @@ function App() {
           (false)
       })
   }, [])
+
   function handleMode(e) {
     e.preventDefault()
     let darkMode = JSON.parse(localStorage.getItem("darkMode"))
@@ -48,7 +45,11 @@ function App() {
       localStorage.setItem("darkMode", JSON.parse(Mode))
     }
   }
-
+  function handleChange(e) {
+    setLang(e.target.value);
+    i18n.changeLanguage(e.target.value);
+    localStorage.setItem('language', e.target.value);
+  }
   return (
     <>
       {!(window.location.pathname === '/login' || window.location.pathname === '/register') && (
@@ -63,7 +64,13 @@ function App() {
             <div className={style.container}>
               <div className='d-flex align-items-center justify-content-between'>
                 <Navbar></Navbar>
-                <div className='d-flex'>
+                <div className={style.navbarr}>
+                  <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/"}>Home</NavLink></div>
+                  <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/about"}>About</NavLink></div>
+                  <div className={style.linkHover}><NavLink className={Mode ? style.link : style.Dlink} to={"/products"}>Products</NavLink></div>
+                  <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/cart"}>Cart</NavLink></div>
+                </div>
+                <div className='nav-bar'>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/"}>Home</NavLink></div>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/about"}>About</NavLink></div>
                   <div className={style.linkHover}><NavLink className={Mode ? style.link : style.Dlink} to={"/products"}>Products</NavLink></div>
@@ -80,6 +87,11 @@ function App() {
                     <SlBasket className={Mode ? style.icon : style.Dicon} style={{
                       cursor: "pointer"
                     }} />
+                    <select className='lang' value={lang} onChange={handleChange}>
+                      <option value="uz">Uz</option>
+                      <option value="en">Eng</option>
+                      <option value="ru">Ru</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -96,6 +108,7 @@ function App() {
           <Route path='/about' element={<About></About>}></Route>
           <Route path='/products' element={<Products></Products>}></Route>
           <Route path='/cart' element={<Cart></Cart>}></Route>
+          <Route path='*' element={<Error></Error>}></Route>
         </Route>
       </Routes>
     </>

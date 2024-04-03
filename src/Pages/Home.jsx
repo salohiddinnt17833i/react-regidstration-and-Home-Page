@@ -32,7 +32,7 @@ function Home(props) {
       <div className={style.container}>
         <header className={style.header}>
           <div>
-            <h1 className={style.h1}>
+            <h1 className={Mode ? style.h1 : style.Dh1}>
               We are changing the way people shop
             </h1>
             <p className={style.p}>

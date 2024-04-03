@@ -6,8 +6,8 @@ function Register() {
     const username = useRef('');
     const email = useRef('');
     const password = useRef('');
-
     const [btnDisabled, setBtnDisabled] = useState(false);
+
 
     function handleSave(e) {
         e.preventDefault()

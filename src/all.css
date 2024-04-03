@@ -1,0 +1,7 @@
+.nav-bar{
+    position: absolute;
+    left: -100%;
+}
+.lang{
+    max-width: 70px;
+}
