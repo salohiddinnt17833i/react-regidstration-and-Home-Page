@@ -26,6 +26,11 @@ function Products() {
       })
   }, [])
 
+  function handleClick(i) {
+    navigate(`/${i}`)
+  }
+
+
   return (
     <>
       <div className='text-center'>

@@ -2,18 +2,21 @@ import style from './all.module.css'
 import cardImg from '../assets/cart/img.jpeg'
 import './all.css'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useTransition } from 'react'
+import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
 function Cart() {
   useEffect(() => {
 
   }, [])
   const Mode = JSON.parse(localStorage.getItem("darkMode"))
+  const { t, i18n } = useTranslation();
 
   return (
     <>
       <div className={Mode ? 'alll' : 'Dall'}>
         <div className={style.container}>
-          <h2 className={Mode ? 'h1' : 'Dh1'}>Shopping Cart</h2>
+          <h2 className={Mode ? 'h1' : 'Dh1'}>{t("Shopping Cart")}</h2>
           <hr style={{ color: "black" }} />
           <div className='AllC'>
             <div>

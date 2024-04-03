@@ -7,25 +7,17 @@ import headerI2 from '../../src/assets/home/header2.webp'
 import '../../src/all.css'
 import { BeatLoader } from 'react-spinners';
 import style from './all.module.css'
-
+import { useTranslation } from 'react-i18next';
 function Home(props) {
   const { data } = props
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation();
   let Mode = JSON.parse(localStorage.getItem("darkMode"))
   const [data1, setData1] = useState([])
   const [loading, setLoading] = useState(false)
 
   function handleClick(i) {
-    navigate("/products")
-    fetch(`https://strapi-store-server.onrender.com/api/products/${i}`, {
-      method: "GET"
-    })
-      .then(json => json.json())
-      .then(data => {
-        setData1(data.data)
-        console.log(data.data);
-
-      })
+    navigate(`/products/${i}`)
   }
 
   return (
@@ -36,12 +28,14 @@ function Home(props) {
         <header className={style.header}>
           <div className={style.headeri}>
             <h1 className={Mode ? style.h1 : style.Dh1}>
-              We are changing the way people shop
+            {t('We are changing the way people shop')}
             </h1>
             <p className={style.p}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.
+              {
+                t('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.')
+              }
             </p>
-            <button className='btn btn-primary mt-4'><Link style={{ color: "white" }} className={style.link} to={"/products"}>OUR PRODUCTS</Link></button>
+            <button className='btn btn-primary mt-4'><Link style={{ color: "white" }} className={style.link} to={"/products"}>{t('OUR PRODUCTS')}</Link></button>
           </div>
           <div className={style.headerImgs}>
             <img className={style.headerImg} src={headerI} alt="" />
@@ -52,7 +46,7 @@ function Home(props) {
 
         <main className={style.container}>
           <div className='mt-5'>
-            <h2 className={Mode ? style.h2 : style.Dh2}>Featured Products</h2>
+            <h2 className={Mode ? style.h2 : style.Dh2}>{t('Featured Products')}</h2>
             <hr />
           </div>
           <div className='d-flex align-items-center mt-5 flex-wrap gap-4 justify-content-center'>

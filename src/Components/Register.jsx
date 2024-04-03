@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
     const navigate = useNavigate();
@@ -8,27 +8,49 @@ function Register() {
     const password = useRef('');
     const [btnDisabled, setBtnDisabled] = useState(false);
 
-
     function handleSave(e) {
-        e.preventDefault()
-        setBtnDisabled(true)
-        const obj = {
-            name: username.current.value,
-            email: email.current.value,
-            password: password.current.value
+        e.preventDefault();
+
+        // Foydalanuvchi kiritgan ma'lumotlar
+        const enteredUsername = username.current.value.trim();
+        const enteredEmail = email.current.value.trim();
+        const enteredPassword = password.current.value.trim();
+
+        // Validatsiya
+        if (enteredUsername === '' || enteredEmail === '' || enteredPassword === '') {
+            alert('Iltimos, barcha maydonlarni to\'ldiring.');
+            return;
         }
-        localStorage.setItem("user", JSON.stringify(obj))
-        navigate("/login")
-        setBtnDisabled(false)
+
+        // Email manzilining to'g'ri formatda kiritilganligini tekshirish
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(enteredEmail)) {
+            alert('Iltimos, to\'g\'ri elektron pochta manzili kiriting.');
+            return;
+        }
+
+        // Ma'lumotlarni saqlash
+        const user = {
+            name: enteredUsername,
+            email: enteredEmail,
+            password: enteredPassword
+        };
+        localStorage.setItem('user', JSON.stringify(user));
+
+        // Login sahifasiga o'tish
+        navigate('/login');
+
+        // tugallashdan oldin btnDisabled holatini o'zgartirish
+        setBtnDisabled(false);
     }
 
     return (
         <div>
             <div style={{
-                marginTop: "100px",
-                maxWidth: "500px",
-                width: "100%",
-                margin: "0px auto"
+                marginTop: '100px',
+                maxWidth: '500px',
+                width: '100%',
+                margin: '0px auto'
             }}>
                 <div className='card p-3 mt-5'>
                     <h2 className='text-center mb-4'>CREATE AN ACCOUNT</h2>
@@ -49,7 +71,7 @@ function Register() {
                         </div>
 
                         <div className='text-center mb-3'>
-                            <button disabled={btnDisabled} onClick={handleSave} className='btn btn-success w-25'>{btnDisabled ? "Save..." : "SAVE"}</button>
+                            <button disabled={btnDisabled} onClick={handleSave} className='btn btn-success w-25'>{btnDisabled ? 'Save...' : 'SAVE'}</button>
                         </div>
 
                         <div>
@@ -59,7 +81,7 @@ function Register() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Register
+export default Register;
