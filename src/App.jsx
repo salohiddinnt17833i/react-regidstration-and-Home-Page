@@ -71,14 +71,14 @@ function App() {
             <div className={style.container}>
               <div className='d-flex align-items-center justify-content-between'>
                 <button className={style.Logobtn} type='button'>C</button>
-                <FaBarsStaggered onClick={handlebar} className={style.bar} />
+                <FaBarsStaggered style={{ color: Mode ? '' : 'white' }} onClick={handlebar} className={style.bar} />
                 <div className={style.navbarr}>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/"}>Home</NavLink></div>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/about"}>About</NavLink></div>
                   <div className={style.linkHover}><NavLink className={Mode ? style.link : style.Dlink} to={"/products"}>Products</NavLink></div>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/cart"}>Cart</NavLink></div>
                 </div>
-                <div className={bar ? 'nav-bar' : 'nav-barr'}>
+                <div style={{ backgroundColor: Mode ? '' : 'black' }} className={bar ? 'nav-bar' : 'nav-barr'}>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/"}>{t('Home')}</NavLink></div>
                   <div className={style.linkHover}> <NavLink className={Mode ? style.link : style.Dlink} to={"/about"}>{t('About')}</NavLink></div>
                   <div className={style.linkHover}><NavLink className={Mode ? style.link : style.Dlink} to={"/products"}>{t('Products')}</NavLink></div>
@@ -95,7 +95,7 @@ function App() {
                     <SlBasket className={Mode ? style.icon : style.Dicon} style={{
                       cursor: "pointer"
                     }} />
-                    <select onChange={handleChange} value={lang} className="lang">
+                    <select style={ { backgroundColor: Mode ? '' : 'black', border: "none", outline: "none" } } onChange={handleChange} value={lang} className="lang">
                       <option value="uz">Uzbek</option>
                       <option value="eng">English</option>
                     </select>
