@@ -34,7 +34,7 @@ function Home(props) {
 
 
         <header className={style.header}>
-          <div>
+          <div className={style.headeri}>
             <h1 className={Mode ? style.h1 : style.Dh1}>
               We are changing the way people shop
             </h1>
@@ -59,7 +59,7 @@ function Home(props) {
             {
               loading ? <BeatLoader /> : data.length > 1 && data.map((el, index) => {
                 return (
-                  <div onClick={() => { handleClick(el.id) }} key={index} className={Mode ? 'card' : style.DCard} style={{ cursor: "pointer" }}>
+                  <div onClick={() => { handleClick(el.id) }} key={index} className={Mode ? style.cardd : style.DCard} style={{ cursor: "pointer" }}>
                     <div className="card-body text-center">
                       <img className={style.cardImg} src={el.attributes.image} alt="img" />
                       <h5 className="card-title mt-4">{el.attributes.title}</h5>

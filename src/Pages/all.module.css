@@ -62,6 +62,7 @@
 
 .h1 {
     max-width: 500px;
+    width: 100%;
     font-size: 60px;
     font-weight: bold;
     color: #394E6A;
@@ -116,6 +117,12 @@
     background-color: #2c2e3a;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.cardd{
+    padding: 10px;
+    max-width: 330px;
+    width: 100%;
+    border: 1px solid #ccc
+}
 
 .Dh2 {
     color: white;
@@ -129,4 +136,41 @@
 .Dh6 {
     color: #778aa3;
     margin-top: 10px;
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .headeri {
+        margin: 0px auto;
+    }
+
+    .h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .headerImgs {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cardImg {
+        width: 200px;
+        height: 192px;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .cardd{
+        padding: 2px;
+    }
+    .cardImg {
+        max-width: 150px;
+    }
 }
