@@ -12,7 +12,6 @@ function Home(props) {
   const { data } = props
   const navigate = useNavigate()
   let Mode = JSON.parse(localStorage.getItem("darkMode"))
-  console.log(16, Mode);
   const [data1, setData1] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -24,12 +23,16 @@ function Home(props) {
       .then(json => json.json())
       .then(data => {
         setData1(data.data)
+        console.log(data.data);
+
       })
   }
 
   return (
     <div className={Mode ? style.body : style.Dbody}>
       <div className={style.container}>
+
+
         <header className={style.header}>
           <div>
             <h1 className={Mode ? style.h1 : style.Dh1}>
@@ -45,6 +48,8 @@ function Home(props) {
             <img className={style.headerI2} src={headerI2} alt="" />
           </div>
         </header>
+
+
         <main className={style.container}>
           <div className='mt-5'>
             <h2 className={Mode ? style.h2 : style.Dh2}>Featured Products</h2>

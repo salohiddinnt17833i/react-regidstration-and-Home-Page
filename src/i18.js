@@ -1,15 +1,15 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
-import resources from './translation/language.json'
+import resources from './translation/lang.json'
 
 i18n
-    .use(initReactI18next) 
+    .use(initReactI18next)
     .init({
         resources,
-        lng: "en",
+        lng: "uz",
+
         interpolation: {
-            escapeValue: false 
+            escapeValue: false
         }
     });
 

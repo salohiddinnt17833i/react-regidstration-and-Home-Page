@@ -1,7 +1,23 @@
-.nav-bar{
+.nav-bar {
     position: absolute;
     left: -100%;
 }
-.lang{
+
+.nav-barr {
+    position: absolute;
+    left: 20px;
+    margin-top: 200px;
+    background: #F0F6FF;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+    .nav-barr {
+        left: -100%;
+    }
+}
+
+.lang {
     max-width: 70px;
 }
